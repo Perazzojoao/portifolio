@@ -32,7 +32,8 @@
     "frontend": "Frontend",
     "backend": "Backend",
     "database": "Database",
-    "infra": "Infrastructure and DevOps"
+    "infra": "Infrastructure and DevOps",
+    "messaging": "Messaging"
   },
   "projects": {
     "title": "Featured projects",

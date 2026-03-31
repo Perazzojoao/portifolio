@@ -3,19 +3,81 @@ import Image from "next/image";
 import { Reveal } from "./reveal";
 
 type SkillGroup = {
-  key: "frontend" | "backend" | "database" | "infra";
+  key: "frontend" | "backend" | "database" | "infra" | "messaging";
   items: string[];
 };
 
 const groups: SkillGroup[] = [
-  { key: "frontend", items: ["Next.js", "React Native", "Tailwind CSS"] },
-  { key: "backend", items: ["Python (FastAPI)", "Nest.js", "Golang"] },
-  { key: "database", items: ["PostgreSQL", "Supabase", "Prisma ORM"] },
+  {
+    key: "frontend",
+    items: ["Next.js", "React Native", "Tailwind CSS", "Zustand", "React Query", "Zod", "React Hook Form", "Axios", "Plate"],
+  },
+  {
+    key: "backend",
+    items: [
+      "Python (FastAPI)",
+      "Nest.js",
+      "Golang",
+      "Better Auth",
+      "gRPC",
+      "REST API",
+      "WebSockets",
+      "LLM Integration",
+      "Microservices Architecture",
+    ],
+  },
+  { key: "database", items: ["PostgreSQL", "Supabase", "Prisma ORM", "MongoDB"] },
   {
     key: "infra",
-    items: ["AWS (EC2, ECS, S3, VPC)", "Docker", "Kubernetes", "GitHub Actions CI/CD"],
+    items: ["AWS (EC2, ECS, S3, VPC)", "Docker", "Kubernetes", "GitHub Actions CI/CD", "Load Balancers"],
+  },
+  {
+    key: "messaging",
+    items: ["RabbitMQ", "Apache Kafka"],
   },
 ];
+
+const groupLayout: Record<SkillGroup["key"], string> = {
+  frontend: "xl:col-span-7",
+  backend: "xl:col-span-5",
+  database: "xl:col-span-6",
+  infra: "xl:col-span-6",
+  messaging: "xl:col-span-12",
+};
+
+const splitListLayout = new Set<SkillGroup["key"]>(["frontend", "backend", "infra"]);
+
+const techIconPaths: Record<string, string> = {
+  "Next.js": "/tech-icons/official/nextjs.svg",
+  "React Native": "/tech-icons/official/react-native.svg",
+  "Tailwind CSS": "/tech-icons/official/tailwindcss.svg",
+  Zustand: "/tech-icons/official/zustand.svg",
+  "React Query": "/tech-icons/official/react-query.svg",
+  Zod: "/tech-icons/official/zod.svg",
+  "React Hook Form": "/tech-icons/official/react-hook-form.svg",
+  Axios: "/tech-icons/official/axios.svg",
+  Plate: "/tech-icons/official/plate.svg",
+  "Python (FastAPI)": "/tech-icons/official/fastapi.svg",
+  "Nest.js": "/tech-icons/official/nestjs.svg",
+  Golang: "/tech-icons/official/go.svg",
+  "Better Auth": "/tech-icons/official/better-auth.svg",
+  gRPC: "/tech-icons/official/grpc.svg",
+  "REST API": "/tech-icons/official/rest-api.svg",
+  WebSockets: "/tech-icons/official/websockets.svg",
+  "LLM Integration": "/tech-icons/official/llm-integration.svg",
+  "Microservices Architecture": "/tech-icons/official/microservices-architecture.svg",
+  PostgreSQL: "/tech-icons/official/postgresql.svg",
+  Supabase: "/tech-icons/official/supabase.svg",
+  "Prisma ORM": "/tech-icons/official/prisma.svg",
+  MongoDB: "/tech-icons/official/mongodb.svg",
+  "AWS (EC2, ECS, S3, VPC)": "/tech-icons/official/aws.svg",
+  Docker: "/tech-icons/official/docker.svg",
+  Kubernetes: "/tech-icons/official/kubernetes.svg",
+  "GitHub Actions CI/CD": "/tech-icons/official/github-actions.svg",
+  "Load Balancers": "/tech-icons/official/load-balancers.svg",
+  RabbitMQ: "/tech-icons/official/rabbitmq.svg",
+  "Apache Kafka": "/tech-icons/official/apache-kafka.svg",
+};
 
 export function Skills() {
   const tAbout = useTranslations("about");
@@ -84,17 +146,30 @@ export function Skills() {
 
             <div className="md:col-span-2 xl:col-span-12 grid gap-4 md:grid-cols-2 xl:grid-cols-12">
               {groups.map((group, index) => (
-                <div key={group.key} className="xl:col-span-6">
+                <div key={group.key} className={groupLayout[group.key]}>
                   <Reveal delay={0.1 + index * 0.06}>
                     <article className="group rounded-3xl border border-[rgba(148,163,184,0.22)] bg-skill-card p-5 shadow-skill-card backdrop-blur-22 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--glass-border-strong)] hover:shadow-skill-card-hover md:p-6">
-                      <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-accent/95">{tSkills(group.key)}</h4>
-                      <ul className="mt-4 space-y-2.5 text-sm text-foreground/90">
+                      <div className="flex items-center justify-between gap-3">
+                        <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-accent/95">{tSkills(group.key)}</h4>
+                        <span className="rounded-full border border-white/14 bg-white/6 px-2.5 py-1 text-[11px] font-medium text-foreground/70">
+                          {group.items.length}
+                        </span>
+                      </div>
+                      <ul
+                        className={`mt-4 text-sm text-foreground/90 ${splitListLayout.has(group.key) ? "grid gap-2.5 sm:grid-cols-2" : "space-y-2.5"
+                          }`}
+                      >
                         {group.items.map((item) => (
                           <li
                             key={item}
                             className="rounded-xl border border-white/10 bg-skill-row px-3 py-2.5 transition-[border-color,background] duration-[240ms] group-hover:border-[rgba(102,225,255,0.28)] group-hover:bg-skill-row-hover"
                           >
-                            {item}
+                            <div className="flex items-center gap-2.5">
+                              <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-white/12 bg-white/90 p-1">
+                                <Image src={techIconPaths[item]} alt={`${item} logo`} width={14} height={14} className="h-3.5 w-3.5 object-contain" />
+                              </span>
+                              <span>{item}</span>
+                            </div>
                           </li>
                         ))}
                       </ul>

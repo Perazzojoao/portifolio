@@ -32,7 +32,8 @@
     "frontend": "Frontend",
     "backend": "Backend",
     "database": "Banco de Dados",
-    "infra": "Infra e DevOps"
+    "infra": "Infra e DevOps",
+    "messaging": "Mensageria"
   },
   "projects": {
     "title": "Projetos em destaque",
