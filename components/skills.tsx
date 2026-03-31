@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Reveal } from "./reveal";
 
 type SkillGroup = {
@@ -26,16 +27,30 @@ export function Skills() {
       <section id="about" className="mx-auto max-w-section px-4 py-16 md:px-5 md:py-20">
         <Reveal>
           <article className="w-full rounded-3xl border border-[var(--glass-border)] bg-organic-about p-6 shadow-card backdrop-blur-20 md:p-8 lg:p-10">
-            <div className="flex justify-between items-center">
-              <h2 className="font-(--font-display) text-2xl text-white md:text-3xl">{tAbout("title")}</h2>
-              <p className="inline-flex w-fit self-center rounded-full border border-[rgba(102,225,255,0.28)] bg-about-subtitle px-[0.8rem] py-[0.38rem] text-xs font-semibold uppercase tracking-[0.14em] text-[rgba(198,241,255,0.95)] shadow-about-subtitle md:text-sm">
-                {tAbout("subtitle")}
-              </p>
-            </div>
-            <div className="text-justify">
-              <p className="mt-6 text-muted leading-7">{tAbout("text")}</p>
-              <p className="mt-2 text-muted leading-7">{tAbout("exp")}</p>
-              <p className="mt-2 text-muted leading-7">{tAbout("details")}</p>
+            <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)] lg:gap-12">
+              <div>
+                <h2 className="font-(--font-display) text-2xl text-white md:text-3xl">{tAbout("title")}</h2>
+                <div className="text-justify">
+                  <p className="mt-6 text-muted leading-7">{tAbout("text")}</p>
+                  <p className="mt-2 text-muted leading-7">{tAbout("exp")}</p>
+                  <p className="mt-2 text-muted leading-7">{tAbout("details")}</p>
+                </div>
+              </div>
+
+              <div className="relative mx-auto w-full max-w-[320px] perspective-distant">
+                <div className="relative">
+                  <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[2.2rem] bg-[radial-gradient(circle_at_45%_30%,rgba(102,225,255,0.32),rgba(15,23,42,0)_68%)] blur-2xl" />
+                  <Image
+                    src="/profile-picture/Imagem_perfil_sem_fundo.PNG"
+                    alt="Foto de perfil"
+                    width={520}
+                    height={660}
+                    priority
+                    className="h-auto w-full rounded-b-[2.2rem] object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.48)] filter-[drop-shadow(0_0_10px_rgba(102,225,255,0.2))_drop-shadow(0_22px_30px_rgba(0,0,0,0.42))]"
+                  />
+                  <div className="pointer-events-none absolute inset-x-14 bottom-3 -z-10 h-10 rounded-full bg-black/45 blur-xl" />
+                </div>
+              </div>
             </div>
           </article>
         </Reveal>
