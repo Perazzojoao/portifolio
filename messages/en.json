@@ -1,0 +1,51 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Personal portfolio",
+    "greeting": "Hi, I am",
+    "name": "Joao Victor Perazzo",
+    "role": "Full Stack Developer",
+    "summary": "Full Stack Developer applying practical experience in Next.js, React Native, Python, and Node.js to build scalable web and mobile solutions with responsible AI integration.",
+    "cvPt": "Download CV - PT",
+    "cvEn": "Download CV - EN",
+    "whatsapp": "Talk to me on WhatsApp",
+    "network": "Live tech network",
+    "social": "Connect"
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "Full Stack Developer | Focus on Web Development",
+    "text": "I build scalable end-to-end applications with a strong focus on web development, performance, and software architecture. I work across Next.js, React Native, Tailwind CSS, FastAPI, Nest.js, and Golang to deliver robust, outcome-driven products.",
+    "exp": "I integrate AI responsibly into existing product flows to create practical impact: smart onboarding, conversational interfaces, repetitive task automation, and data enrichment with human oversight, security, and cost efficiency.",
+    "details": "I also adopt a high-efficiency AI workflow (Claude Code, Skills, and MCPs) combined with engineering fundamentals such as CI/CD, AWS cloud infrastructure, containerization, observability, and collaboration in international teams."
+  },
+  "skills": {
+    "title": "Core technology ecosystem",
+    "stackTitle": "Primary stack",
+    "stackSubtitle": "Technologies I use most frequently in current deliveries.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "infra": "Infrastructure and DevOps"
+  },
+  "projects": {
+    "title": "Featured projects",
+    "description": "Selected work focused on performance, user experience, and scalable architecture.",
+    "featured": "Featured",
+    "repo": "Repository",
+    "demo": "Live"
+  },
+  "contact": {
+    "kicker": "Direct contact",
+    "title": "Want to build something ambitious?",
+    "text": "I am open to new challenges, consulting opportunities, and product teams with strong technical ambition.",
+    "cta": "Send message",
+    "availability": "Available for new projects and collaborations"
+  }
+}

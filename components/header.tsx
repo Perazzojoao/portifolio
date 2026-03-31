@@ -1,0 +1,149 @@
+"use client";
+
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
+import { Menu } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { type MouseEvent, useEffect, useState } from "react";
+import { LanguageToggle } from "./language-toggle";
+
+const sectionIds = ["home", "about", "skills", "projects", "contact"] as const;
+
+export function Header() {
+  const t = useTranslations("header");
+  const [active, setActive] = useState<(typeof sectionIds)[number]>("home");
+
+  const scrollToSectionById = (id: (typeof sectionIds)[number]) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    const headerEl = document.querySelector("header");
+    const headerHeight = headerEl ? headerEl.getBoundingClientRect().height : 0;
+    const offset = headerHeight + 18;
+    const top = section.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.history.replaceState(null, "", `#${id}`);
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    setActive(id);
+  };
+
+  useEffect(() => {
+    const getCurrentSection = () => {
+      const headerEl = document.querySelector("header");
+      const headerHeight = headerEl ? headerEl.getBoundingClientRect().height : 0;
+      const offset = headerHeight + 22;
+      const referenceY = offset;
+
+      const metrics = sectionIds
+        .map((id) => {
+          const section = document.getElementById(id);
+          if (!section) return null;
+          const rect = section.getBoundingClientRect();
+          return {
+            id,
+            top: rect.top,
+            bottom: rect.bottom,
+          };
+        })
+        .filter((item): item is { id: (typeof sectionIds)[number]; top: number; bottom: number } => item !== null);
+
+      const containing = metrics
+        .filter((item) => item.top <= referenceY && item.bottom > referenceY)
+        .sort((a, b) => b.top - a.top);
+
+      if (containing.length > 0) {
+        return containing[0].id;
+      }
+
+      const next = metrics
+        .filter((item) => item.top > referenceY)
+        .sort((a, b) => a.top - b.top);
+
+      if (next.length > 0) {
+        return next[0].id;
+      }
+
+      return metrics.length > 0 ? metrics[metrics.length - 1].id : "home";
+    };
+
+    const syncActiveSection = () => {
+      setActive(getCurrentSection());
+    };
+
+    syncActiveSection();
+    window.addEventListener("scroll", syncActiveSection, { passive: true });
+    window.addEventListener("resize", syncActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", syncActiveSection);
+      window.removeEventListener("resize", syncActiveSection);
+    };
+  }, []);
+
+  const scrollToSection = (id: (typeof sectionIds)[number]) => (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    scrollToSectionById(id);
+  };
+
+  return (
+    <header className="sticky top-0 z-50 w-full px-4 pt-4 md:px-5 max-w-280 mx-auto">
+      <div className="glass-panel mx-auto flex w-full items-center justify-between gap-4 rounded-2xl px-4 py-3 sm:px-5">
+        <a href="#home" onClick={scrollToSection("home")} className="font-(--font-display) text-sm tracking-wide text-gradient">
+          JV.PERAZZO
+        </a>
+
+        <nav className="hidden items-center gap-2 md:flex">
+          {sectionIds.map((id) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={scrollToSection(id)}
+              aria-current={active === id ? "page" : undefined}
+              className={`rounded-full px-3 py-1.5 text-sm transition-colors ${active === id ? "bg-primary/25 text-white" : "text-muted hover:text-white"
+                }`}
+            >
+              {t(id)}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <div className="order-1 md:order-2">
+            <LanguageToggle />
+          </div>
+
+          <div className="order-2 md:order-1">
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                className="glass-panel inline-flex h-9 w-9 items-center justify-center rounded-full text-foreground transition hover:text-accent md:hidden"
+                aria-label="Open navigation menu"
+              >
+                <Menu size={18} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="end"
+                sideOffset={10}
+                className="mobile-nav-dropdown z-120 w-56 space-y-2 rounded-2xl p-1.5"
+              >
+                {sectionIds.map((id) => (
+                  <DropdownMenuItem
+                    key={id}
+                    data-active={active === id ? "true" : "false"}
+                    aria-current={active === id ? "page" : undefined}
+                    className={cn(
+                      "mobile-nav-item cursor-pointer rounded-xl px-3 py-2 text-sm outline-none transition",
+                      active === id && "mobile-nav-item-active"
+                    )}
+                    onClick={() => scrollToSectionById(id)}
+                  >
+                    {t(id)}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}

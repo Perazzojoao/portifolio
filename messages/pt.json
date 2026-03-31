@@ -1,0 +1,51 @@
+{
+  "header": {
+    "home": "Inicio",
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "hero": {
+    "eyebrow": "Portfolio pessoal",
+    "greeting": "Ola, eu sou",
+    "name": "Joao Victor Perazzo",
+    "role": "Full Stack Developer",
+    "summary": "Desenvolvedor Full Stack aplicando experiencia pratica em Next.js, React Native, Python e Node.js para construir solucoes escalaveis (Web e Mobile) com integracao responsavel de IA.",
+    "cvPt": "Baixar CV - PT",
+    "cvEn": "Baixar CV - EN",
+    "whatsapp": "Fale comigo no WhatsApp",
+    "network": "Rede tech ativa",
+    "social": "Conecte-se"
+  },
+  "about": {
+    "title": "Sobre mim",
+    "subtitle": "Desenvolvedor Full Stack | Foco em Desenvolvimento Web",
+    "text": "Atuo no desenvolvimento de aplicacoes escalaveis de ponta a ponta, com foco em Web, performance e arquitetura de software. Trabalho com Next.js, React Native, Tailwind CSS, FastAPI, Nest.js e Golang para entregar produtos robustos e orientados a resultado.",
+    "exp": "Integro IA de forma responsavel aos fluxos existentes para gerar valor real: onboarding inteligente, interfaces conversacionais, automacao de tarefas repetitivas e enriquecimento de dados com supervisao humana, seguranca e eficiencia de custos.",
+    "details": "Tambem aplico um workflow de alta produtividade com IA generativa (Claude Code, Skills e MCPs), junto de boas praticas de engenharia como CI/CD, cloud na AWS, containerizacao, observabilidade e colaboracao em times internacionais."
+  },
+  "skills": {
+    "title": "Ecossistema principal",
+    "stackTitle": "Stack principal",
+    "stackSubtitle": "Tecnologias que uso com mais frequencia nas entregas atuais.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Banco de Dados",
+    "infra": "Infra e DevOps"
+  },
+  "projects": {
+    "title": "Projetos em destaque",
+    "description": "Selecao de entregas com foco em performance, experiencia de usuario e escalabilidade.",
+    "featured": "Destaque",
+    "repo": "Repositorio",
+    "demo": "Deploy"
+  },
+  "contact": {
+    "kicker": "Contato direto",
+    "title": "Vamos construir algo grande?",
+    "text": "Estou aberto para novos desafios, consultorias e produtos com ambicao tecnica.",
+    "cta": "Enviar mensagem",
+    "availability": "Disponivel para novos projetos e colaboracoes"
+  }
+}
