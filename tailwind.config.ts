@@ -51,6 +51,13 @@ const config: Config = {
 			boxShadow: {
 				card: 'var(--card-shadow)',
 				'blue-glow': 'var(--blue-glow)',
+				'about-subtitle': 'inset 0 0 0 1px rgba(255, 255, 255, 0.06)',
+				'mobile-nav': '0 16px 34px -20px rgba(4, 8, 16, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.03) inset',
+				'skill-card': '0 16px 34px -20px rgba(4, 8, 16, 0.95)',
+				'skill-card-hover': '0 20px 40px -24px rgba(0, 194, 255, 0.45), 0 18px 26px -24px rgba(0, 0, 0, 0.82)',
+				'project-card': '0 20px 38px -24px rgba(0, 0, 0, 0.9)',
+				'project-card-hover': '0 20px 40px -22px rgba(0, 194, 255, 0.42), 0 12px 24px -24px rgba(0, 0, 0, 0.9)',
+				'contact-cta': '0 0 0 1px rgba(255, 255, 255, 0.08) inset',
 			},
 			fontFamily: {
 				sans: ['var(--font-sans)', 'sans-serif'],
@@ -72,6 +79,24 @@ const config: Config = {
 					'radial-gradient(circle at 15% 0%, rgba(102, 225, 255, 0.08), transparent 34%), linear-gradient(145deg, rgba(14, 28, 55, 0.68) 10%, rgba(10, 16, 33, 0.62) 100%)',
 				'organic-stack':
 					'radial-gradient(circle at 85% 5%, rgba(47, 107, 255, 0.14), transparent 36%), linear-gradient(150deg, rgba(9, 17, 34, 0.74), rgba(8, 14, 30, 0.62))',
+				'about-subtitle': 'linear-gradient(120deg, rgba(102, 225, 255, 0.16), rgba(47, 107, 255, 0.1))',
+				'mobile-nav-dropdown':
+					'radial-gradient(circle at 88% 0%, rgba(0, 194, 255, 0.1), transparent 38%), linear-gradient(145deg, rgba(15, 23, 42, 0.28), rgba(15, 23, 42, 0.16))',
+				'mobile-nav-item': 'linear-gradient(120deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06))',
+				'mobile-nav-item-highlighted': 'linear-gradient(120deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04))',
+				'mobile-nav-item-active':
+					'radial-gradient(circle at 90% 0%, rgba(0, 194, 255, 0.14), transparent 60%), linear-gradient(120deg, rgba(47, 107, 255, 0.22), rgba(47, 107, 255, 0.1))',
+				'skill-chip': 'linear-gradient(140deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02))',
+				'skill-card':
+					'radial-gradient(circle at 88% 0%, rgba(0, 194, 255, 0.1), transparent 38%), linear-gradient(145deg, rgba(15, 23, 42, 0.28), rgba(15, 23, 42, 0.16))',
+				'skill-row': 'linear-gradient(120deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02))',
+				'skill-row-hover': 'linear-gradient(120deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04))',
+				'project-card':
+					'radial-gradient(circle at 82% 6%, rgba(0, 194, 255, 0.12), transparent 40%), linear-gradient(145deg, rgba(13, 24, 47, 0.64), rgba(10, 16, 31, 0.58))',
+				'project-pill': 'linear-gradient(130deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02))',
+				'project-tag': 'linear-gradient(130deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015))',
+				'contact-shell':
+					'radial-gradient(circle at 90% 0%, rgba(0, 194, 255, 0.12), transparent 38%), linear-gradient(145deg, rgba(14, 28, 56, 0.5), rgba(11, 18, 34, 0.42))',
 				'text-gradient': 'linear-gradient(120deg, #8ec9ff 0%, #45a3ff 48%, #82efff 100%)',
 			},
 		},

@@ -40,17 +40,17 @@ export function Hero() {
 
   return (
     <section id="home" className="relative z-10 flex-1">
-      <div className="section-shell relative z-10 grid min-h-full items-center gap-10 py-6 md:py-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-10">
+      <div className="relative z-10 mx-auto grid min-h-full max-w-section items-center gap-10 px-4 py-6 md:px-5 md:py-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-10">
         <div className="order-2 space-y-8 lg:order-1">
           <Reveal>
-            <span className="glass-panel inline-flex rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <span className="inline-flex rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent shadow-card backdrop-blur-20">
               {t("eyebrow")}
             </span>
           </Reveal>
 
           <Reveal delay={0.1}>
             <h1 className="font-(--font-display) text-4xl leading-tight text-foreground sm:text-5xl lg:text-6xl">
-              {t("greeting")} <span className="text-gradient">{t("name")}</span>
+              {t("greeting")} <span className="bg-text-gradient bg-clip-text text-transparent">{t("name")}</span>
               <br />
               <span className="text-white">{t("role")}</span>
             </h1>
@@ -97,7 +97,7 @@ export function Hero() {
                 href="https://github.com/Perazzojoao"
                 target="_blank"
                 rel="noreferrer"
-                className="glass-panel rounded-full p-2 text-foreground transition hover:text-accent"
+                className="rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] p-2 text-foreground shadow-card backdrop-blur-20 transition hover:text-accent"
                 aria-label="GitHub"
               >
                 <GitHubIcon size={17} />
@@ -106,7 +106,7 @@ export function Hero() {
                 href="https://www.linkedin.com/in/jo%C3%A3o-victor-perazzo-6a16292b5"
                 target="_blank"
                 rel="noreferrer"
-                className="glass-panel rounded-full p-2 text-foreground transition hover:text-accent"
+                className="rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] p-2 text-foreground shadow-card backdrop-blur-20 transition hover:text-accent"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon size={17} />

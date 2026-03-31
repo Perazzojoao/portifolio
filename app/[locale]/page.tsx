@@ -7,7 +7,7 @@ import { Skills } from "@/components/skills";
 
 export default function PortfolioPage() {
   return (
-    <div className="atmosphere min-h-screen pb-12">
+    <div className="bg-atmosphere min-h-screen pb-12">
       <div className="fixed inset-0 z-0 pointer-events-none">
         <HeroScene />
       </div>
