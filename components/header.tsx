@@ -6,13 +6,21 @@ import { useTranslations } from "next-intl";
 import { type MouseEvent, useEffect, useState } from "react";
 import { LanguageToggle } from "./language-toggle";
 
-const sectionIds = ["home", "about", "skills", "projects", "github", "contact"] as const;
+type SectionId = "home" | "about" | "skills" | "projects" | "github" | "contact";
 
-export function Header() {
+const sectionIdsWithProjects: readonly SectionId[] = ["home", "about", "skills", "projects", "github", "contact"];
+const sectionIdsWithoutProjects: readonly SectionId[] = ["home", "about", "skills", "github", "contact"];
+
+type HeaderProps = {
+  showProjects?: boolean;
+};
+
+export function Header({ showProjects = true }: HeaderProps) {
+  const sectionIds = showProjects ? sectionIdsWithProjects : sectionIdsWithoutProjects;
   const t = useTranslations("header");
-  const [active, setActive] = useState<(typeof sectionIds)[number]>("home");
+  const [active, setActive] = useState<SectionId>("home");
 
-  const scrollToSectionById = (id: (typeof sectionIds)[number]) => {
+  const scrollToSectionById = (id: SectionId) => {
     const section = document.getElementById(id);
     if (!section) return;
 
@@ -25,6 +33,25 @@ export function Header() {
     window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
     setActive(id);
   };
+
+  useEffect(() => {
+    if (showProjects || window.location.hash !== "#projects") {
+      return;
+    }
+
+    const homeSection = document.getElementById("home");
+    if (!homeSection) {
+      return;
+    }
+
+    const headerEl = document.querySelector("header");
+    const headerHeight = headerEl ? headerEl.getBoundingClientRect().height : 0;
+    const offset = headerHeight + 18;
+    const top = homeSection.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.history.replaceState(null, "", "#home");
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  }, [showProjects]);
 
   useEffect(() => {
     const getCurrentSection = () => {
@@ -44,7 +71,7 @@ export function Header() {
             bottom: rect.bottom,
           };
         })
-        .filter((item): item is { id: (typeof sectionIds)[number]; top: number; bottom: number } => item !== null);
+        .filter((item): item is { id: SectionId; top: number; bottom: number } => item !== null);
 
       const containing = metrics
         .filter((item) => item.top <= referenceY && item.bottom > referenceY)
@@ -77,9 +104,9 @@ export function Header() {
       window.removeEventListener("scroll", syncActiveSection);
       window.removeEventListener("resize", syncActiveSection);
     };
-  }, []);
+  }, [sectionIds]);
 
-  const scrollToSection = (id: (typeof sectionIds)[number]) => (event: MouseEvent<HTMLAnchorElement>) => {
+  const scrollToSection = (id: SectionId) => (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     scrollToSectionById(id);
   };
