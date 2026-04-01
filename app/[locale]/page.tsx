@@ -5,20 +5,23 @@ import { Hero } from "@/components/hero";
 import { HeroScene } from "@/components/hero-scene";
 import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
+import { isProjectsFeatureEnabled } from "@/lib/features";
 
 export default function PortfolioPage() {
+  const isProjectsEnabled = isProjectsFeatureEnabled();
+
   return (
     <div className="bg-atmosphere min-h-screen pb-12">
       <div className="fixed inset-0 z-0 pointer-events-none">
         <HeroScene />
       </div>
       <main className="relative z-10">
-        <Header />
+        <Header showProjects={isProjectsEnabled} />
         <section className="relative isolate -mt-24 flex min-h-dvh flex-col pt-24 lg:h-dvh lg:overflow-hidden">
           <Hero />
         </section>
         <Skills />
-        <Projects />
+        {isProjectsEnabled && <Projects />}
         <GithubActivity />
         <Contact />
       </main>
