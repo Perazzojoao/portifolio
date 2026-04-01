@@ -4,6 +4,7 @@
     "about": "About",
     "skills": "Skills",
     "projects": "Projects",
+    "github": "GitHub",
     "contact": "Contact"
   },
   "hero": {
@@ -41,6 +42,31 @@
     "featured": "Featured",
     "repo": "Repository",
     "demo": "Live"
+  },
+  "github": {
+    "title": "GitHub repository highlights",
+    "description": "Pinned repositories and recent commit activity that reflect current focus and shipping pace.",
+    "languagesSummaryTitle": "Most used languages",
+    "languagesSummaryDescription": "Top 5 languages across all public repositories, with the remaining share grouped as Others.",
+    "languagesOthers": "Others",
+    "languagesChartCenter": "Top language",
+    "languagesChartEmpty": "Language distribution could not be calculated right now.",
+    "languagesRepositoriesAnalyzed": "repositories analyzed",
+    "pinnedTitle": "Pinned repositories",
+    "pinnedDescription": "Repositories highlighted on my GitHub profile, rendered as a full carousel.",
+    "recentTitle": "Recent push activity",
+    "recentDescription": "Repositories updated most recently, including commit volume from the latest push.",
+    "pinnedFeatured": "Pinned",
+    "featured": "Recent push",
+    "repo": "Repository",
+    "commits": "Commits",
+    "languages": "Languages",
+    "updated": "Latest push",
+    "descriptionFallback": "Repository description not available.",
+    "carouselPrevious": "Previous repository",
+    "carouselNext": "Next repository",
+    "reposEmpty": "Repository activity could not be loaded at this time.",
+    "recentPushCommits": "commits in latest push"
   },
   "contact": {
     "kicker": "Direct contact",

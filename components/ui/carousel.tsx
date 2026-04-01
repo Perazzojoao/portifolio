@@ -1,12 +1,12 @@
 "use client"
 
-import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
+import * as React from "react"
 
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 type CarouselApi = UseEmblaCarouselType[1]
@@ -185,9 +185,9 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute touch-manipulation rounded-full",
+        "absolute touch-manipulation rounded-full border-white/20 bg-[rgba(8,14,30,0.72)] text-foreground/92 shadow-blue-glow backdrop-blur-18 transition-colors hover:border-accent/60 hover:bg-[rgba(47,107,255,0.28)] hover:text-accent-glow disabled:border-white/12 disabled:bg-[rgba(8,14,30,0.4)]",
         orientation === "horizontal"
-          ? "top-1/2 -left-12 -translate-y-1/2"
+          ? "top-1/2 -left-5 -translate-y-1/2 md:-left-12"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -215,9 +215,9 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute touch-manipulation rounded-full",
+        "absolute touch-manipulation rounded-full border-white/20 bg-[rgba(8,14,30,0.72)] text-foreground/92 shadow-blue-glow backdrop-blur-18 transition-colors hover:border-accent/60 hover:bg-[rgba(47,107,255,0.28)] hover:text-accent-glow disabled:border-white/12 disabled:bg-[rgba(8,14,30,0.4)]",
         orientation === "horizontal"
-          ? "top-1/2 -right-12 -translate-y-1/2"
+          ? "top-1/2 -right-5 -translate-y-1/2 md:-right-12"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -232,11 +232,8 @@ function CarouselNext({
 }
 
 export {
-  type CarouselApi,
   Carousel,
   CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-  useCarousel,
+  CarouselItem, CarouselNext, CarouselPrevious, useCarousel, type CarouselApi
 }
+

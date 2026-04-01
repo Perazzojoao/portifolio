@@ -1,4 +1,5 @@
 import { Contact } from "@/components/contact";
+import { GithubActivity } from "@/components/github-activity";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { HeroScene } from "@/components/hero-scene";
@@ -18,6 +19,7 @@ export default function PortfolioPage() {
         </section>
         <Skills />
         <Projects />
+        <GithubActivity />
         <Contact />
       </main>
     </div>
