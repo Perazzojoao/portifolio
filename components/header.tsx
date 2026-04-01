@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { type MouseEvent, useEffect, useState } from "react";
 import { LanguageToggle } from "./language-toggle";
 
-const sectionIds = ["home", "about", "skills", "projects", "contact"] as const;
+const sectionIds = ["home", "about", "skills", "projects", "github", "contact"] as const;
 
 export function Header() {
   const t = useTranslations("header");

@@ -4,6 +4,7 @@
     "about": "Sobre",
     "skills": "Habilidades",
     "projects": "Projetos",
+    "github": "GitHub",
     "contact": "Contato"
   },
   "hero": {
@@ -48,5 +49,30 @@
     "text": "Estou aberto para novos desafios, consultorias e produtos com ambição técnica.",
     "cta": "Enviar mensagem",
     "availability": "Disponível para novos projetos e colaborações"
+  },
+  "github": {
+    "title": "Panorama de repositorios no GitHub",
+    "description": "Repositorios fixados e atividade recente de commits para mostrar foco tecnico e ritmo de entrega.",
+    "languagesSummaryTitle": "Linguagens mais usadas",
+    "languagesSummaryDescription": "Resumo das top 5 linguagens em todos os repositorios publicos, com agrupamento de restante em Others.",
+    "languagesOthers": "Others",
+    "languagesChartCenter": "Linguagem lider",
+    "languagesChartEmpty": "Nao foi possivel calcular a distribuicao de linguagens no momento.",
+    "languagesRepositoriesAnalyzed": "repositorios analisados",
+    "pinnedTitle": "Repositorios fixados",
+    "pinnedDescription": "Repositorios em destaque no meu perfil do GitHub, renderizados em carousel.",
+    "recentTitle": "Atividade recente de push",
+    "recentDescription": "Repositorios atualizados recentemente, incluindo volume de commits no ultimo push.",
+    "pinnedFeatured": "Fixado",
+    "featured": "Push recente",
+    "repo": "Reposit\u00f3rio",
+    "commits": "Commits",
+    "languages": "Linguagens",
+    "updated": "Ultimo push",
+    "descriptionFallback": "Descricao do repositorio indisponivel.",
+    "carouselPrevious": "Repositorio anterior",
+    "carouselNext": "Proximo repositorio",
+    "reposEmpty": "Nao foi possivel carregar a atividade dos repositorios agora.",
+    "recentPushCommits": "commits no ultimo push"
   }
 }

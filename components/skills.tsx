@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Reveal } from "./reveal";
+import { SummaryCard } from "./ui/summary-card";
 
 type SkillGroup = {
   key: "frontend" | "backend" | "database" | "infra" | "messaging";
@@ -127,10 +128,8 @@ export function Skills() {
           <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-12">
             <div className="md:col-span-1 xl:col-span-6">
               <Reveal delay={0.08}>
-                <article className="rounded-3xl border border-[var(--glass-border)] bg-organic-stack p-5 shadow-card backdrop-blur-20 md:p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent/90">{tSkills("stackTitle")}</p>
-                  <p className="mt-2 text-sm text-foreground/78">{tSkills("stackSubtitle")}</p>
-                  <ul className="mt-4 flex flex-wrap gap-2.5">
+                <SummaryCard title={tSkills("stackTitle")} subtitle={tSkills("stackSubtitle")}>
+                  <ul className="flex flex-wrap gap-2.5">
                     {primaryStack.map((stack) => (
                       <li
                         key={stack}
@@ -140,7 +139,7 @@ export function Skills() {
                       </li>
                     ))}
                   </ul>
-                </article>
+                </SummaryCard>
               </Reveal>
             </div>
 
